@@ -145,8 +145,8 @@ run().catch(error => console.log(error));
 
 app.get('/', (req, res) => {
     res.send("Dochouse Server runnig")
-})
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
-})
+});
