@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// Database 
+// Database Create
 
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.ksaovkw.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -98,7 +98,6 @@ async function run() {
         app.get('/myreviews', verifyAccess, async (req, res) => {
             const decoded = req.decoded;
 
-            console.log(decoded);
             if (decoded.email !== req.query.email) {
                 return res.status(403).send('unauthorized access');
             }
@@ -124,11 +123,9 @@ async function run() {
                 }
             };
             const result = await reviewCollection.updateOne(query, updatedReview);
-            console.log(result);
             res.send(result)
 
         });
-        // gititiititit
 
 
         app.delete('/myreviews/:id', async (req, res) => {
