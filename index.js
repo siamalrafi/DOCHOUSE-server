@@ -45,11 +45,13 @@ async function run() {
             res.send({ token });
         });
 
+
         app.get('/home', async (req, res) => {
             const query = {};
             const services = await serviceCollection.find(query).limit(3).toArray();
             res.send(services);
-        })
+        });
+
 
         app.post('/services', async (req, res) => {
             const service = req.body;
