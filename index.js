@@ -66,7 +66,7 @@ async function run() {
             res.send(services);
         });
 
-        
+
         app.get(`/services/:id`, async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
@@ -124,7 +124,6 @@ async function run() {
             };
             const result = await reviewCollection.updateOne(query, updatedReview);
             res.send(result)
-
         });
 
 
