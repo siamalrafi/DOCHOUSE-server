@@ -85,6 +85,7 @@ async function run() {
 
 
         // get a single service review
+
         app.get('/reviews', async (req, res) => {
             let query = {};
             if (req.query.serviceId) {
@@ -95,6 +96,7 @@ async function run() {
         });
 
         // get your reviews from this api
+
         app.get('/myreviews', verifyAccess, async (req, res) => {
             const decoded = req.decoded;
 
@@ -135,6 +137,7 @@ async function run() {
         })
 
     }
+    
     finally {
         // await client.close();
     }
